@@ -2,7 +2,7 @@
 ** DESCRIPTION
 ** The ft_strmap() function applies the function f() to each character of the
 ** string s to create a "fresh" new string (with malloc(3) - actuall with
-** ft_strnew()) resulting from the successive application of f().
+** ft_strnew0()) resulting from the successive application of f().
 **
 ** RETURN VALUE
 ** The ft_strmap() function returns a pointer to the new string.
@@ -20,7 +20,7 @@ char	*ft_strmap(const char *s, char (*f)(char))
 
 	tmp1 = NULL;
 	if (s && f)
-		if ((tmp1 = ft_strnew(ft_strlen(s))))
+		if ((tmp1 = ft_strnew0(ft_strlen(s))))
 		{
 			tmp2 = tmp1;
 			while (*s)

@@ -1,7 +1,7 @@
 /*
 ** DESCRIPTION
 ** The ft_strsub() function allocates (with malloc(3) - actually with
-** ft_strnew()) and returns a "fresh" substring from the string pointed to by
+** ft_strnew0()) and returns a "fresh" substring from the string pointed to by
 ** s. The substring begins at index start and is of size len.
 **
 ** RETURN VALUE
@@ -20,5 +20,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char *t;
 
-	return (s && (t = ft_strnew(len)) ? ft_memmove(t, s + start, len) : NULL);
+	return (s && (t = ft_strnew0(len)) ? ft_memmove(t, s + start, len) : NULL);
 }

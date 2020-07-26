@@ -18,3 +18,20 @@ char	*ft_strnew(size_t size)
 {
 	return (ft_memalloc(size + 1));
 }
+
+/*
+** The ft_strnew0() function is the same but doesn't set all the chars with
+** '\0', but only the last one.
+*/
+
+char	*ft_strnew0(size_t size)
+{
+	char	*str;
+
+	if (!(size + 1))
+		return (NULL);
+	if (!(str = (char*)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	str[size] = '\0';
+	return (str);
+}

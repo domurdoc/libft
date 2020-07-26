@@ -1,7 +1,7 @@
 /*
 ** DESCRIPTION
 ** The ft_strjoin() function allocates (with malloc(3) - actuall with
-** ft_strnew()) and returns a "fresh" string ending with '\0', result of the
+** ft_strnew0()) and returns a "fresh" string ending with '\0', result of the
 ** concatenation of s1 and s2.
 **
 ** RETURN VALUE
@@ -27,6 +27,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	l1 = s1 ? ft_strlen(s1) : 0;
 	l2 = s2 ? ft_strlen(s2) : 0;
 	if ((s1 || s2) && (l1 + l2) >= l1)
-		b = ft_strnew(l1 + l2);
+		b = ft_strnew0(l1 + l2);
 	return (b ? (ft_memmove((ft_memmove(b, s1, l1) + l1), s2, l2) - l1) : b);
 }

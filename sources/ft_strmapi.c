@@ -2,7 +2,7 @@
 ** DESCRIPTION
 ** The ft_strmapi() function applies the function f() to each character of the
 ** string s, when its index is passed to the function f() too, to create a
-** "fresh" new string (with malloc(3) - actuall with ft_strnew()) resulting
+** "fresh" new string (with malloc(3) - actuall with ft_strnew0()) resulting
 ** from the successive application of f().
 **
 ** RETURN VALUE
@@ -23,7 +23,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	tmp1 = NULL;
 	i = -1;
 	if (s && f)
-		if ((tmp1 = ft_strnew(ft_strlen(s))))
+		if ((tmp1 = ft_strnew0(ft_strlen(s))))
 		{
 			tmp2 = tmp1;
 			while (*s)
