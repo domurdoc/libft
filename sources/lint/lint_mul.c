@@ -9,17 +9,17 @@ static void	lint_add_sh(t_lint *res, t_lint *a, t_lint *b, t_size sh)
 
 	i = -1;
 	carry = 0;
-	bigger_size = (*a).size > (*b).size + sh ? (*a).size : (*b).size + sh;
+	bigger_size = a->size > b->size + sh ? a->size : b->size + sh;
 	while (++i < sh)
-		(*res).limb[i] = (*a).limb[i];
+		res->limb[i] = a->limb[i];
 	while (i < bigger_size || carry)
 	{
-		tmp = (*a).limb[i] + (*b).limb[i - sh] + carry;
-		carry = (((*a).limb[i] & (*b).limb[i - sh]) | (((*a).limb[i] |
-						(*b).limb[i - sh]) & (~tmp))) >> (LSIZE - 1);
-		(*res).limb[i++] = tmp;
+		tmp = a->limb[i] + b->limb[i - sh] + carry;
+		carry = ((a->limb[i] & b->limb[i - sh]) | ((a->limb[i] |
+						b->limb[i - sh]) & (~tmp))) >> (LSIZE - 1);
+		res->limb[i++] = tmp;
 	}
-	(*res).size = i;
+	res->size = i;
 }
 
 void		lint_mul_1(t_lint *res, t_lint *a, t_limb b)
@@ -29,16 +29,16 @@ void		lint_mul_1(t_lint *res, t_lint *a, t_limb b)
 
 	i = -1;
 	s_ = 0;
-	while (++i < (*a).size)
+	while (++i < a->size)
 	{
-		s_ += (t_dlimb)(*a).limb[i] * b;
-		(*res).limb[i] = (t_limb)s_;
+		s_ += (t_dlimb)a->limb[i] * b;
+		res->limb[i] = (t_limb)s_;
 		s_ >>= LSIZE;
 	}
-	(*res).limb[i++] = (t_limb)s_;
-	(*res).size = i;
-	(*res).size = lint_normsize(res);
-	(*res).sign = (*a).sign;
+	res->limb[i++] = (t_limb)s_;
+	res->size = i;
+	res->size = lint_normsize(res);
+	res->sign = a->sign;
 }
 
 void		lint_mul(t_lint *res, t_lint *a, t_lint *b)
@@ -49,11 +49,11 @@ void		lint_mul(t_lint *res, t_lint *a, t_lint *b)
 
 	i = -1;
 	lint_clear(&add_res);
-	while (++i < (*b).size)
+	while (++i < b->size)
 	{
-		lint_mul_1(&mul_res, a, (*b).limb[i]);
+		lint_mul_1(&mul_res, a, b->limb[i]);
 		lint_add_sh(&add_res, &add_res, &mul_res, i);
 	}
-	add_res.sign = (*a).sign * (*b).sign;
+	add_res.sign = a->sign * b->sign;
 	lint_copy(res, &add_res);
 }
