@@ -85,4 +85,6 @@ uint8_t				ft_log2(uint64_t x);
 int					ft_atoi_base(const char *str, int base);
 int					ft_isbasedigit(char c, int base);
 
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+
 #endif
