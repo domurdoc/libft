@@ -1,3 +1,15 @@
+/*
+** DESCRIPTION
+** - lint_mul() function multiplies lints pointed at by a and b and assigns the
+**   result to res. a and b can point to the same lint.
+**
+** - lint_mul_1() function multiplies lint pointed at by a and limb b and
+**   assigns the result to res.
+**
+** COMMENT
+** The operations can be done in-place.
+*/
+
 #include "lint.h"
 
 static void	lint_add_sh(t_lint *res, t_lint *a, t_lint *b, t_size sh)

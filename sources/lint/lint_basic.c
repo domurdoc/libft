@@ -1,3 +1,16 @@
+/*
+** DESCRIPTION
+** - lint_clear() function makes lint pozitive, zero-length and sets all
+**   the limbs to 0. Returns nothing.
+**
+** - lint_assign() function makes lint pointed to by dst of an usisnged integer
+**   within t_dlimb size value, pozitive or negative depending on sign
+**   (1 = "plus", -1 = "minus").
+**
+** - lint_copy() function copies src lint ot dst. Actually one can copy a lint
+**   with simple assignment: a = b, where b - source, a - destination.
+*/
+
 #include "lint.h"
 
 void	lint_clear(t_lint *dst)

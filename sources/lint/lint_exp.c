@@ -1,3 +1,16 @@
+/*
+** DESCRIPTION
+** - lint_10pow() function returns lint equal to 10^exp.
+**
+** - lint_2pow() function returns lint equal to 2^exp.
+**
+** COMMENT
+** For lint_10pow() g_10pow7 and g_10pow4096 arrays are used to increase
+** performance with possibility of exponentiation 10 up to 7 and 4096
+** correspondingly. The second table was calculated directly by getting those
+** values using multiplication lint_mul() function.
+*/
+
 #include "lint.h"
 
 static t_limb	g_10pow7[8] =

@@ -1,3 +1,15 @@
+/*
+** DESCRIPTION
+** - lint_lshift() function takes a lint pointed at by src and shifts its value
+**   by sh bits to the left. The result is written in res.
+**
+** - lint_rshift() function takes a lint pointed at by src and shifts its value
+**   by sh bits to the right. The result is written in res.
+**
+** COMMENT
+** The operations can be done in-place.
+*/
+
 #include "lint.h"
 
 void	lint_lshift_size(t_lint *res, t_lint *src, t_size sh)

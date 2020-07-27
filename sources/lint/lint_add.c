@@ -1,3 +1,15 @@
+/*
+** DESCRIPTION
+** - lint_add() function sums lints pointed at by a and b and assigns the result
+**   to res.
+**
+** - lint_add_1() function sums lint pointed at by a and limb b and assigns the
+**   result to res.
+**
+** COMMENT
+** The operations can be done in-place.
+*/
+
 #include "lint.h"
 
 static int	lint_add_check(t_lint *res, t_lint *a, t_lint *b)

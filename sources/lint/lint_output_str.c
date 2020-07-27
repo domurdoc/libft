@@ -1,3 +1,17 @@
+/*
+** DESCRIPTION
+** - lint_putstr() fills string pointed to by str with lint value. Returns
+**   number of bytes written. Recursive.
+**
+** - lint_tostr() function allocates and returns a string ending with
+**   '\0' representing the lint src.
+**
+** - lint_tostr2() is a recursive version of lint_tostr().
+**
+** COMMENT
+** lint_tostr() is very much like ft_itoa().
+*/
+
 #include "lint.h"
 
 static size_t	lint_putstr_(t_lint *src, char *str)

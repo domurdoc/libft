@@ -1,3 +1,16 @@
+/*
+** DESCRIPTION
+** - lint_put() function takes a copy of lint src, and puts it to STDOUT.
+**
+** - lint_put_fd() function takes a copy of lint src, and puts it to fd.
+**
+** RETURN VALUE
+** Number of bytes written.
+**
+** COMMENT
+** OUTPUT is filled byte by byte.
+*/
+
 #include "lint.h"
 
 static size_t	lint_put_fd_(t_lint *src, int fd)

@@ -1,3 +1,15 @@
+/*
+** DESCRIPTION
+** - lint_sub() function substructs lint pointed at by b from lint pointed at by
+**   a and assigns the result to res.
+**
+** - lint_sub_1() function substructs limb b from lint pointed at by a and
+**   assigns the result to res.
+**
+** COMMENT
+** The operations can be done in-place.
+*/
+
 #include "lint.h"
 
 static void	lint_sub_pswap(t_lint **a, t_lint **b)

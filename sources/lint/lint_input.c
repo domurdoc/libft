@@ -1,3 +1,15 @@
+/*
+** DESCRIPTION
+** The lint_read() converts the initial portion of the string pointed to by str
+** to lint.
+**
+** RETURN VALUE
+** The converted value.
+**
+** COMMENT
+** Similar to ft_atoi() function.
+*/
+
 #include "lint.h"
 
 t_lint	lint_read(char *str)

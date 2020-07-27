@@ -1,3 +1,13 @@
+/*
+** DESCRIPTION
+** - lint_cmp() function compares lint a and b.
+**
+** - lint_cmp_abs() function compares absolute values of lint a and b.
+**
+** RETURN VALUE
+** -1, 0 or 1 if a correspondingly less, equal or greater then b.
+*/
+
 #include "lint.h"
 
 t_sign	lint_cmp_es(t_lint *a, t_lint *b)

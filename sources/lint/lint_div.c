@@ -1,3 +1,12 @@
+/*
+** DESCRIPTION
+** - lint_div() function divides copy of lint a by copy of lint b and assigns
+**   the quotient to res and remainder is returned.
+**
+** - lint_div_1() function divides lint poited to by a by limb b (of size
+**   t_limb). Division can be done in-place.
+*/
+
 #include "lint.h"
 
 t_limb			lint_div_1(t_lint *q, t_lint *a, t_limb b)
