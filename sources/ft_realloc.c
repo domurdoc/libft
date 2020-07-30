@@ -28,7 +28,7 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		free(ptr);
 		return (NULL);
 	}
-	if ((x = malloc(new_size))
+	if ((x = malloc(new_size)))
 	{
 		x = ft_memmove(x, ptr, new_size < old_size ? new_size : old_size);
 		free(ptr);
