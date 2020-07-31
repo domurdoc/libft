@@ -46,7 +46,7 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s || !(b = (char**)malloc(sizeof(char*) * (wc(s, c) + 1))))
 		return (NULL);
 	t = b;
-	while ((len = find_word(&s, &beg, c)))
+	while ((len = find_word((char**)&s, &beg, c)))
 	{
 		if (!(*b++ = ft_strsub(beg, 0, len)))
 		{
