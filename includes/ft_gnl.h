@@ -1,5 +1,5 @@
-#ifndef GNL_H
-# define GNL_H
+#ifndef FT_GNL_H
+# define FT_GNL_H
 # include "libft.h"
 
 # define BUFF_SIZE	4096
