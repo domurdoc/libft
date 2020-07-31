@@ -44,12 +44,12 @@ void	*lst_ht_pop(t_lst_ht *x)
 	return (data);
 }
 
-void	lst_ht_del(t_lst_ht **x, void (*del)(void*))
+void	lst_ht_del(t_lst_ht *x, void (*del)(void*))
 {
-	if (x && *x)
+	if (x)
 	{
-		lst_del(&(*x)->head, del);
-		(*x)->tail = NULL;
-		ft_memdel(x);
+		x->len = 0;
+		lst_del(&x->head, del);
+		x->tail = NULL;
 	}
 }
