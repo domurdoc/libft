@@ -20,7 +20,7 @@ int				ft_isbasedigit(char c, int base)
 	{
 		if (ft_isalpha(c))
 		{
-			c = 10 + ft_tlower(c) - 'a';
+			c = 10 + ft_tolower(c) - 'a';
 			return (c < base ? c : -1);
 		}
 		else if (ft_isdigit(c))
