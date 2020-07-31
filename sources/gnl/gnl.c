@@ -158,12 +158,13 @@ int	fd_process(t_dlst_cir *bf)
 ** it to the pointer **line. Can work with multiple fd's.
 **
 ** RETURN VALUE
-** The function returns -1 if an error occurs (reading or memory allocation),
-** 1 if a new line obtained and 0 if fd-thread is empty (initailly or just was
-** completely read).
+** The function returns -1 if an error occurs (reading, memory allocation or
+** line == NULL), 1 if a new line obtained and 0 if fd-thread is empty
+** (initailly or just was completely read).
 **
 ** COMMENT
-** If an error occurs or fd-thread is empty then current fd-buffer is deleted.
+** If reading or memory allocation error occurs or fd-thread is empty then
+** current fd-buffer is deleted and ptr *line is not changed.
 ** All the rest buffers stay the same.
 */
 
@@ -172,6 +173,8 @@ int	gnl(int fd, char **line)
 	static t_dlst_cir	bf = {0, NULL};
 	int					ret;
 
+	if (!line)
+		return (ERROR);
 	if ((ret = fd_get(fd, &bf)) != OK)
 		return (ret);
 	if ((ret = fd_process(&bf)) != OK)
