@@ -87,7 +87,7 @@ int	fd_get(int fd, t_dlst_cir *bf)
 	int		ret;
 
 	i = 0;
-	while (i++ < bf->len && ((t_fd*)bf->cur->data)->fd != fd)
+	while (i++ < bf->len && FD->fd != fd)
 		bf->cur = bf->cur->next;
 	if (i > bf->len)
 	{
