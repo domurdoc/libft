@@ -168,7 +168,7 @@ int	fd_process(t_dlst_cir *bf)
 ** All the rest buffers stay the same.
 */
 
-int	gnl(int fd, char **line)
+int	ft_gnl(int fd, char **line)
 {
 	static t_dlst_cir	bf = {0, NULL};
 	int					ret;

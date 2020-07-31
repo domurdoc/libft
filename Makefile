@@ -85,7 +85,7 @@ LINT_SRCS_NAMES = lint_basic.c \
 	lint_input.c \
 	lint_exp.c
 
-GNL_SRCS_NAMES = gnl.c
+GNL_SRCS_NAMES = ft_gnl.c
 
 LST_SRCS_NAMES = dlst.c \
 	dlst_cir.c \
@@ -94,7 +94,7 @@ LST_SRCS_NAMES = dlst.c \
 
 INCLUDES_NAMES = libft.h \
 	lint.h \
-	gnl.h \
+	ft_gnl.h \
 	lst.h
 
 INCLUDES_DIR = ./includes

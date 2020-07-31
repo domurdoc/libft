@@ -12,7 +12,7 @@
 # include <fcntl.h>
 
 # include "lst.h"
-# include "gnl.h"
+# include "ft_gnl.h"
 # include "lint.h"
 
 void				*ft_memset(void *b, int c, size_t len);
@@ -96,6 +96,6 @@ int					ft_isbasedigit(char c, int base);
 void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 char				*ft_strnew0(size_t size);
 
-int					gnl(int fd, char **line);
+int					ft_gnl(int fd, char **line);
 
 #endif
