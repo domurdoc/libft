@@ -42,13 +42,13 @@ int	fd_read(t_dlst_cir *bf)
 {
 	t_snip	*snip;
 
-	if (FD->snips && SNPH->len == 0)
+	if (FD->snips.len != 0 && SNPH->len == 0)
 		snip = SNPH;
 	else
 	{
 		if (!(snip = malloc(sizeof(t_snip))))
 			return (ERROR);
-		if (lst_ht_push_back(FD->snips, snip))
+		if (lst_ht_push_back(&FD->snips, snip))
 		{
 			free(snip);
 			return (ERROR);
@@ -99,7 +99,9 @@ int	fd_get(int fd, t_dlst_cir *bf)
 			return (ERROR);
 		}
 		new_fd->fd = fd;
-		new_fd->snips = NULL;
+		new_fd->snips.len = 0;
+		new_fd->snips.head = NULL;
+		new_fd->snips.tail = NULL;
 		if ((ret = fd_read(bf)) != OK)
 			return (fd_del(bf, ret));
 	}
@@ -138,15 +140,15 @@ int	fd_process(t_dlst_cir *bf)
 	if (!(FD->line = ft_strnew0(l[0] + l[1])))
 		return (ERROR);
 	l[0] = 0;
-	while (FD->snips->len > 1)
+	while (FD->snips.len > 1)
 	{
 		(void)ft_memmove(FD->line + l[0], SNPH->str + SNPH->offset, SNPH->len);
 		l[0] += SNPH->len;
-		free(lst_ht_pop(FD->snips));
+		free(lst_ht_pop(&FD->snips));
 	}
 	(void)ft_memmove(FD->line + l[0], SNPH->str + SNPH->offset, l[1]);
 	SNPH->offset += l[1] + 1;
-	SNPH->len -= SNPH->offset;
+	SNPH->len -= l[1] + 1;
 	return (OK);
 }
 
@@ -165,7 +167,7 @@ int	fd_process(t_dlst_cir *bf)
 ** All the rest buffers stay the same.
 */
 
-int	ft_gnl(int fd, char **line)
+int	gnl(int fd, char **line)
 {
 	static t_dlst_cir	bf = {0, NULL};
 	int					ret;
