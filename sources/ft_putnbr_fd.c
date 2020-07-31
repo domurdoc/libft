@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	i = 16;
 	f = n;
 	while ((int)(buf[--i] = f % 10 + '0') && f / 10 > 0)
-			f /= 10;
+		f /= 10;
 	if (n < 0)
 		buf[--i] = '-';
 	write(fd, buf + i, 16 - i);
