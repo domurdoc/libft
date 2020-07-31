@@ -8,6 +8,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <wchar.h>
 
 # include "lst.h"
 # include "lint.h"
@@ -94,5 +97,9 @@ void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 char				*ft_strnew0(size_t size);
 
 int					ft_gnl(int fd, char **line);
+
+int					ft_vasprintf(char **str, const char *fmt, va_list ap);
+int					ft_dprintf(int fd, const char *fmt, ...);
+int					ft_printf(const char *fmt, ...);
 
 #endif

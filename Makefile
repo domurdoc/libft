@@ -91,10 +91,46 @@ LST_SRCS_NAMES = dlst.c \
 	lst.c \
 	lst_ht.c
 
-INCLUDES_NAMES = libft.h \
-	lint.h \
+PRINTF_SRCS_NAMES = as.c \
+	buf.c \
+	fa_0_0.c \
+	fa_0_1.c \
+	fa_0_2.c \
+	fa_0_3.c \
+	fpn_core_0_0.c \
+	fpn_core_0_1.c \
+	fpn_core_0_2.c \
+	fpn_core_0_3.c \
+	fpn_core_1_0.c \
+	fpn_core_1_1.c \
+	fs_0_0.c \
+	fs_0_1.c \
+	fs_1.c \
+	ft_printf.c \
+	ft_vasprintf.c \
+	hub_char.c \
+	hub_color.c \
+	hub_fpn.c \
+	hub_int.c \
+	hub_lint.c \
+	hub_n.c \
+	hub_str.c \
+	int_core.c \
+	res_string_0.c \
+	res_string_1.c \
+	types.c \
+	wc_core.c
+
+INCLUDES_NAMES = fpn.h \
+	fs.h \
 	ft_gnl.h \
-	lst.h
+	ft_printf.h \
+	int.h \
+	libft.h \
+	lint.h \
+	lst.h \
+	res_string.h \
+	wc.h
 
 INCLUDES_DIR = ./includes
 INCLUDES = $(addprefix $(INCLUDES_DIR)/,$(INCLUDES_NAMES))
@@ -114,6 +150,11 @@ LST_SRCS_DIR = sources/lst
 LST_SRCS = $(addprefix $(LST_SRCS_DIR)/, $(LST_SRCS_NAMES))
 LST_OBJS = $(addprefix $(OBJS_DIR)/, $(LST_SRCS_NAMES:.c=.o))
 
+#ft_printf
+PRINTF_SRCS_DIR = sources/printf
+PRINTF_SRCS = $(addprefix $(PRINTF_SRCS_DIR)/, $(PRINTF_SRCS_NAMES))
+PRINTF_OBJS = $(addprefix $(OBJS_DIR)/, $(PRINTF_SRCS_NAMES:.c=.o))
+
 #color
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -124,8 +165,8 @@ all: $(OBJS_DIR) $(NAME)
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
-$(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS)
-	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS)
+$(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
+	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
 
@@ -136,6 +177,9 @@ $(OBJS_DIR)/%.o: $(LINT_SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(OBJS_DIR)/%.o: $(LST_SRCS_DIR)/%.c $(INCLUDES)
+	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(OBJS_DIR)/%.o: $(PRINTF_SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 clean:
