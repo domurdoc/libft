@@ -8,6 +8,7 @@ FLAGS = -Wall -Wextra -Werror -g
 SRCS_NAMES = ft_atoi.c \
 	ft_atoi_base.c \
 	ft_bzero.c \
+	ft_gnl.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -85,8 +86,6 @@ LINT_SRCS_NAMES = lint_basic.c \
 	lint_input.c \
 	lint_exp.c
 
-GNL_SRCS_NAMES = ft_gnl.c
-
 LST_SRCS_NAMES = dlst.c \
 	dlst_cir.c \
 	lst.c \
@@ -110,11 +109,6 @@ LINT_SRCS_DIR = sources/lint
 LINT_SRCS = $(addprefix $(LINT_SRCS_DIR)/, $(LINT_SRCS_NAMES))
 LINT_OBJS = $(addprefix $(OBJS_DIR)/, $(LINT_SRCS_NAMES:.c=.o))
 
-#gnl
-GNL_SRCS_DIR = sources/gnl
-GNL_SRCS = $(addprefix $(GNL_SRCS_DIR)/, $(GNL_SRCS_NAMES))
-GNL_OBJS = $(addprefix $(OBJS_DIR)/, $(GNL_SRCS_NAMES:.c=.o))
-
 #lst
 LST_SRCS_DIR = sources/lst
 LST_SRCS = $(addprefix $(LST_SRCS_DIR)/, $(LST_SRCS_NAMES))
@@ -130,8 +124,8 @@ all: $(OBJS_DIR) $(NAME)
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
-$(NAME): $(OBJS) $(LINT_OBJS) $(GNL_OBJS) $(LST_OBJS)
-	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(GNL_OBJS) $(LST_OBJS)
+$(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS)
+	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
 
@@ -139,9 +133,6 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(OBJS_DIR)/%.o: $(LINT_SRCS_DIR)/%.c $(INCLUDES)
-	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
-
-$(OBJS_DIR)/%.o: $(GNL_SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(OBJS_DIR)/%.o: $(LST_SRCS_DIR)/%.c $(INCLUDES)
