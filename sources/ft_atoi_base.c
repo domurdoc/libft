@@ -19,7 +19,6 @@ int			ft_atoi_base(const char *str, int base)
 	__int128_t	f;
 	int			d;
 	int			sign;
-	char		*range[2];
 
 	f = 0;
 	sign = 1;
