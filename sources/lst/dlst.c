@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "lst.h"
 
 t_dlst	*dlst_new(void *data)
 {

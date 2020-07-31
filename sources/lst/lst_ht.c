@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "lst.h"
 
 int		lst_ht_push(t_lst_ht *x, void *data)
 {

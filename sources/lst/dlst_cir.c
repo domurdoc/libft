@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "lst.h"
 
 int		dlst_cir_push(t_dlst_cir *x, void *data)
 {

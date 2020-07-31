@@ -1,18 +1,15 @@
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <string.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
-
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 
 # include "lst.h"
-# include "ft_gnl.h"
 # include "lint.h"
 
 void				*ft_memset(void *b, int c, size_t len);
