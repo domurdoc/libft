@@ -1,5 +1,11 @@
 #include "lst.h"
 
+/*
+** The lst_new() function allocates memory (malloc(3)) for t_lst structure and
+** returns it with next-pointer set to NULL and data being initialized with data
+** passed to the function. If allocation fails returns NULL.
+*/
+
 t_lst	*lst_new(void *data)
 {
 	t_lst	*new;
@@ -12,6 +18,10 @@ t_lst	*lst_new(void *data)
 	return (new);
 }
 
+/*
+** The lst_add() function adds new element at the begining of the list.
+*/
+
 void	lst_add(t_lst **first, t_lst *new)
 {
 	if (first && new)
@@ -21,6 +31,11 @@ void	lst_add(t_lst **first, t_lst *new)
 	}
 }
 
+/*
+** The lst_add_after() function adds new element after the previous one (last in
+** the list).
+*/
+
 void	lst_add_after(t_lst *prev, t_lst *new)
 {
 	if (prev && new)
@@ -29,6 +44,12 @@ void	lst_add_after(t_lst *prev, t_lst *new)
 		prev->next = new;
 	}
 }
+
+/*
+** The lst_del() function walks along the list from the first and frees each
+** element with free(3) and its data with del-function passed. In the end *first
+** equals NULL.
+*/
 
 void	lst_del(t_lst **first, void (*del)(void*))
 {

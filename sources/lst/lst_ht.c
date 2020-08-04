@@ -1,5 +1,10 @@
 #include "lst.h"
 
+/*
+** The lst_ht_push() function pushes data to the begining of the list. If an
+** error occurs then 1 is returned.
+*/
+
 int		lst_ht_push(t_lst_ht *x, void *data)
 {
 	t_lst	*new;
@@ -11,6 +16,11 @@ int		lst_ht_push(t_lst_ht *x, void *data)
 		x->tail = x->head;
 	return (0);
 }
+
+/*
+** The lst_ht_push_back() function pushes data to the end of the list. If an
+** error occurs then 1 is returned.
+*/
 
 int		lst_ht_push_back(t_lst_ht *x, void *data)
 {
@@ -28,6 +38,13 @@ int		lst_ht_push_back(t_lst_ht *x, void *data)
 	return (0);
 }
 
+/*
+** The lst_ht_pop() function extracts the data from the first element in the
+** list, frees the element and returns the data. If the list is empty then NULL
+** is returned. If there is only one element left in the list then both head and
+** tail pointers will point to NULL after the extraction.
+*/
+
 void	*lst_ht_pop(t_lst_ht *x)
 {
 	void	*data;
@@ -43,6 +60,11 @@ void	*lst_ht_pop(t_lst_ht *x)
 		x->tail = NULL;
 	return (data);
 }
+
+/*
+** The lst_ht_del() function uses lst_del() function to delete the list and sets
+** tail-pointer to NULL.
+*/
 
 void	lst_ht_del(t_lst_ht *x, void (*del)(void*))
 {

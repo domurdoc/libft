@@ -2,11 +2,20 @@
 # define LST_H
 # include "libft.h"
 
+/*
+** t_lst - single chained list.
+*/
+
 typedef struct		s_lst
 {
 	void			*data;
 	struct s_lst	*next;
 }					t_lst;
+
+/*
+** t_lst_ht - header holding pointers to the first and last elements of single
+** chained list and its length.
+*/
 
 typedef struct		s_lst_ht
 {
@@ -15,12 +24,21 @@ typedef struct		s_lst_ht
 	t_lst			*tail;
 }					t_lst_ht;
 
+/*
+** t_dlst - double chained list.
+*/
+
 typedef struct		s_dlst
 {
 	void			*data;
 	struct s_dlst	*next;
 	struct s_dlst	*prev;
 }					t_dlst;
+
+/*
+** t_dlst_cir - header holding length of the curcuit double chained list and the
+** pointer to its element.
+*/
 
 typedef struct		s_dlst_cir
 {

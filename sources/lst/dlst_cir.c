@@ -1,5 +1,10 @@
 #include "lst.h"
 
+/*
+** The dlst_cir_push() function pushes data before cur. If an error occurs then
+** 1 is returned.
+*/
+
 int		dlst_cir_push(t_dlst_cir *x, void *data)
 {
 	t_dlst	*new;
@@ -24,6 +29,15 @@ int		dlst_cir_push(t_dlst_cir *x, void *data)
 	x->len++;
 	return (0);
 }
+
+/*
+** The lst_ht_pop() function extracts the data from the cur element in the
+** list, frees the element and returns the data. If the list is empty then NULL
+** is returned. If there is only one element left in the list then cur pointer
+** will point to NULL after the extraction. If there are two elements left then
+** the only left after the extraction will have next and prev pointers set to
+** itself.
+*/
 
 void	*dlst_cir_pop(t_dlst_cir *x)
 {
