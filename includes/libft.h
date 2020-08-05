@@ -14,6 +14,7 @@
 
 # include "lst.h"
 # include "lint.h"
+# include "array.h"
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -101,5 +102,7 @@ int					ft_gnl(int fd, char **line);
 int					ft_vasprintf(char **str, const char *fmt, va_list ap);
 int					ft_dprintf(int fd, const char *fmt, ...);
 int					ft_printf(const char *fmt, ...);
+
+void				ft_swap(void *a, void *b, size_t len);
 
 #endif
