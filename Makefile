@@ -121,7 +121,11 @@ PRINTF_SRCS_NAMES = as.c \
 	types.c \
 	wc_core.c
 
-INCLUDES_NAMES = fpn.h \
+ARRAY_SRCS_NAMES = array.c \
+	bheap.c
+
+INCLUDES_NAMES = array.h \
+	fpn.h \
 	fs.h \
 	ft_gnl.h \
 	ft_printf.h \
@@ -155,6 +159,11 @@ PRINTF_SRCS_DIR = sources/printf
 PRINTF_SRCS = $(addprefix $(PRINTF_SRCS_DIR)/, $(PRINTF_SRCS_NAMES))
 PRINTF_OBJS = $(addprefix $(OBJS_DIR)/, $(PRINTF_SRCS_NAMES:.c=.o))
 
+#array
+ARRAY_SRCS_DIR = sources/array
+ARRAY_SRCS = $(addprefix $(ARRAY_SRCS_DIR)/, $(ARRAY_SRCS_NAMES))
+ARRAY_OBJS = $(addprefix $(OBJS_DIR)/, $(ARRAY_SRCS_NAMES:.c=.o))
+
 #color
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -165,7 +174,7 @@ all: $(OBJS_DIR) $(NAME)
 $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
-$(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
+$(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
 	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
@@ -180,6 +189,9 @@ $(OBJS_DIR)/%.o: $(LST_SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 $(OBJS_DIR)/%.o: $(PRINTF_SRCS_DIR)/%.c $(INCLUDES)
+	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(OBJS_DIR)/%.o: $(ARRAY_SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
 
 clean:
