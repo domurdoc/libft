@@ -29,4 +29,6 @@ int				ar_add(t_array *ar, void *new);
 int				bh_add(t_array *bh, void *new);
 void			*bh_extract(t_array *bh);
 
+void			ar_quicksort(t_array *ar, uint32_t l, uint32_t r);
+
 #endif
