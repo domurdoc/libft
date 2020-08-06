@@ -15,6 +15,7 @@ t_array	*ar_new(uint32_t cap)
 	}
 	new->len = 0;
 	new->cap = cap;
+	new->del = NULL;
 	new->opt = NULL;
 	return (new);
 }
@@ -51,9 +52,9 @@ void	ar_del(t_array *ar)
 	i = 0;
 	if (!ar)
 		return ;
-	if (ar->opt && AR_DEL)
+	if (ar->del)
 		while (i < ar->len)
-			AR_DEL(ar->data[i++]);
+			ar->del(ar->data[i++]);
 	free(ar->opt);
 	free(ar->data);
 	free(ar);
