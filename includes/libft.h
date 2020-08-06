@@ -104,5 +104,6 @@ int					ft_dprintf(int fd, const char *fmt, ...);
 int					ft_printf(const char *fmt, ...);
 
 void				ft_swap(void *a, void *b, size_t len);
+void				ft_swap_p(void **a, void **b);
 
 #endif

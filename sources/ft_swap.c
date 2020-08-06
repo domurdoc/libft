@@ -17,3 +17,12 @@ void	ft_swap(void *a, void *b, size_t len)
 		*b_++ = tmp;
 	}
 }
+
+void	ft_swap_p(void **a, void **b)
+{
+	void	*tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
