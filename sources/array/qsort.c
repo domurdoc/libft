@@ -13,7 +13,7 @@ static uint32_t	ar_partition(t_array *ar, uint32_t l, uint32_t r)
 			r--;
 		if (l >= r)
 			break ;
-		AR_SWAP(ar->data[l], ar->data[l]);
+		AR_SWAP(&ar->data[l], &ar->data[l]);
 		l++;
 		r--;
 	}
