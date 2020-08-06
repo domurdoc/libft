@@ -1,6 +1,7 @@
 #include "array.h"
 
-t_ar_opt	*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**))
+t_ar_opt	*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**),
+			void (*del)(void*))
 {
 	t_ar_opt	*new;
 
@@ -8,5 +9,6 @@ t_ar_opt	*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**))
 		return (NULL);
 	new->cmp = cmp;
 	new->swap = swap;
+	new->del = del;
 	return (new);	
 }

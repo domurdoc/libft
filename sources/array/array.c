@@ -43,3 +43,18 @@ int		ar_add(t_array *ar, void *new)
 	ar->data[ar->len++] = new;
 	return (0);
 }
+
+void	ar_del(t_array *ar)
+{
+	size_t	i;
+
+	i = 0;
+	if (!ar)
+		return ;
+	if (ar->opt && AR_DEL)
+		while (i < ar->len)
+			AR_DEL(ar->data[i++]);
+	free(ar->opt);
+	free(ar->data);
+	free(ar);
+}

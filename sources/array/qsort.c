@@ -1,6 +1,6 @@
 #include "array.h"
 
-static uint32_t	ar_partition(t_array *ar, uint32_t l, uint32_t r)
+static uint32_t	partition(t_array *ar, uint32_t l, uint32_t r)
 {
 	uint64_t	v;
 
@@ -20,14 +20,24 @@ static uint32_t	ar_partition(t_array *ar, uint32_t l, uint32_t r)
 	return (r);
 }
 
-void			ar_quicksort(t_array *ar, uint32_t l, uint32_t r)
+static void		quicksort(t_array *ar, uint32_t l, uint32_t r)
 {
 	uint32_t	q;
 
-	if (ar && l < r && r < ar->len)
+	if (l < r)
 	{
-		q = ar_partition(ar, l, r);
-		ar_quicksort(ar, l, q);
-		ar_quicksort(ar, q + 1, r);
+		q = partition(ar, l, r);
+		quicksort(ar, l, q);
+		quicksort(ar, q + 1, r);
 	}
+}
+
+int				ar_quicksort(t_array *ar)
+{
+	if (ar && ar->opt && AR_SWAP && AR_CMP)
+	{
+		quicksort(ar, 0, ar->len - 1);
+		return (0);
+	}
+	return (1);
 }
