@@ -5,8 +5,8 @@
 # define BH_LEFT(i)		(((i) << 1) + 1)
 # define BH_RIGHT(i)	(((i) << 1) + 2)
 # define BH_PARENT(i)	(((i) - 1) / 2)
-# define BH_SWAP		((t_exch*)bh->opt)->swap
-# define BH_CMP			((t_exch*)bh->opt)->cmp
+# define AR_SWAP		((t_exch*)ar->opt)->swap
+# define AR_CMP			((t_exch*)ar->opt)->cmp
 
 typedef struct	s_array
 {

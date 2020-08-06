@@ -1,55 +1,55 @@
 #include "array.h"
 
-void	bh_sift_down(t_array *bh, size_t i)
+void	bh_sift_down(t_array *ar, size_t i)
 {
 	size_t	left;
 	size_t	right;
 	size_t	lesser;
 
-	while ((left = BH_LEFT(i)) < bh->len)
+	while ((left = BH_LEFT(i)) < ar->len)
 	{
 		right = left + 1;
 		lesser = left;
-		if (right < bh->len && BH_CMP(bh->data[left], bh->data[right]) > 0)
+		if (right < ar->len && AR_CMP(ar->data[left], ar->data[right]) > 0)
 			lesser = right;
-		if (BH_CMP(bh->data[i], bh->data[lesser]) <= 0)
+		if (AR_CMP(ar->data[i], ar->data[lesser]) <= 0)
 			break ;
-		BH_SWAP(&bh->data[i], &bh->data[lesser]);
+		AR_SWAP(&ar->data[i], &ar->data[lesser]);
 		lesser = i;
 	}
 }
 
-void	bh_sift_up(t_array *bh, size_t i)
+void	bh_sift_up(t_array *ar, size_t i)
 {
 	size_t	parent;
 
-	while (BH_CMP(bh->data[i], bh->data[(parent = BH_PARENT(i))]) < 0)
+	while (AR_CMP(ar->data[i], ar->data[(parent = BH_PARENT(i))]) < 0)
 	{
-		BH_SWAP(&bh->data[i], &bh->data[parent]);
+		AR_SWAP(&ar->data[i], &ar->data[parent]);
 		i = parent;
 	}
 }
 
-int		bh_add(t_array *bh, void *new)
+int		bh_add(t_array *ar, void *new)
 {
-	if (ar_add(bh, new))
+	if (ar_add(ar, new))
 		return (1);
-	bh_sift_up(bh, bh->len - 1);
+	bh_sift_up(ar, ar->len - 1);
 	return (0);
 }
 
-void	*bh_extract(t_array *bh)
+void	*bh_extract(t_array *ar)
 {
 	void	*data;
 
 	data = NULL;
-	if (bh->len > 0)
+	if (ar->len > 0)
 	{
-		data = bh->data[0];
-		if (--bh->len > 0)
+		data = ar->data[0];
+		if (--ar->len > 0)
 		{
-			bh->data[0] = bh->data[bh->len];
-			bh_sift_down(bh, 0);
+			ar->data[0] = ar->data[ar->len];
+			bh_sift_down(ar, 0);
 		}
 	}
 	return (data);
