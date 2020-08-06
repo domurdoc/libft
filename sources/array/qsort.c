@@ -7,13 +7,13 @@ static uint32_t	partition(t_array *ar, uint32_t l, uint32_t r)
 	v = (l + r) / 2;
 	while (l <= r)
 	{
-		while (AR_CMP(ar->data[l], ar->data[v]) < 0)
+		while (ar->cmp(ar->data[l], ar->data[v]) < 0)
 			l++;
-		while (AR_CMP(ar->data[r], ar->data[v]) > 0)
+		while (ar->cmp(ar->data[r], ar->data[v]) > 0)
 			r--;
 		if (l >= r)
 			break ;
-		AR_SWAP(&ar->data[l], &ar->data[l]);
+		ft_swap_p(&ar->data[l], &ar->data[l]);
 		l++;
 		r--;
 	}
@@ -34,7 +34,7 @@ static void		quicksort(t_array *ar, uint32_t l, uint32_t r)
 
 int				ar_quicksort(t_array *ar)
 {
-	if (ar && ar->opt && AR_SWAP && AR_CMP)
+	if (ar && ar->cmp)
 	{
 		quicksort(ar, 0, ar->len - 1);
 		return (0);

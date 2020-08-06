@@ -125,7 +125,6 @@ PRINTF_SRCS_NAMES = as.c \
 ARRAY_SRCS_NAMES = array.c \
 	bheap.c \
 	map.c \
-	opt.c \
 	qsort.c
 
 INCLUDES_NAMES = array.h \

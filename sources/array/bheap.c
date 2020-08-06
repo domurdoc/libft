@@ -10,11 +10,11 @@ void	bh_sift_down(t_array *ar, size_t i)
 	{
 		right = left + 1;
 		lesser = left;
-		if (right < ar->len && AR_CMP(ar->data[left], ar->data[right]) > 0)
+		if (right < ar->len && ar->cmp(ar->data[left], ar->data[right]) > 0)
 			lesser = right;
-		if (AR_CMP(ar->data[i], ar->data[lesser]) <= 0)
+		if (ar->cmp(ar->data[i], ar->data[lesser]) <= 0)
 			break ;
-		AR_SWAP(&ar->data[i], &ar->data[lesser]);
+		ft_swap_p(&ar->data[i], &ar->data[lesser]);
 		lesser = i;
 	}
 }
@@ -23,9 +23,9 @@ void	bh_sift_up(t_array *ar, size_t i)
 {
 	size_t	parent;
 
-	while (AR_CMP(ar->data[i], ar->data[(parent = BH_PARENT(i))]) < 0)
+	while (ar->cmp(ar->data[i], ar->data[(parent = BH_PARENT(i))]) < 0)
 	{
-		AR_SWAP(&ar->data[i], &ar->data[parent]);
+		ft_swap_p(&ar->data[i], &ar->data[parent]);
 		i = parent;
 	}
 }
