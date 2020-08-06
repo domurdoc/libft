@@ -45,16 +45,16 @@ int		ar_add(t_array *ar, void *new)
 	return (0);
 }
 
-void	ar_del(t_array *ar)
+void	ar_del(t_array **ar)
 {
 	size_t	i;
 
 	i = 0;
-	if (!ar)
+	if (!ar || !*ar)
 		return ;
-	if (ar->del)
-		while (i < ar->len)
-			ar->del(ar->data[i++]);
-	free(ar->data);
-	free(ar);
+	if ((*ar)->del)
+		while (i < (*ar)->len)
+			(*ar)->del((*ar)->data[i++]);
+	free((*ar)->data);
+	free((*ar));
 }

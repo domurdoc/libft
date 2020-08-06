@@ -18,7 +18,7 @@ typedef struct	s_array
 t_array			*ar_new(uint32_t cap, void (*del)(void*));
 int				ar_extend(t_array *ar, uint32_t extra_cap);
 int				ar_add(t_array *ar, void *new);
-void			ar_del(t_array *ar);
+void			ar_del(t_array **ar);
 
 int				bh_add(t_array *bh, void *new);
 void			*bh_extract(t_array *bh);

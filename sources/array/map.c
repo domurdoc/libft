@@ -12,7 +12,7 @@ t_array	*ar_map(t_array *ar, void *(*func)(void*), void (*del)(void*))
 	{
 		if (!(new_ar->data[new_ar->len] = func(ar->data[new_ar->len])))
 		{
-			ar_del(new_ar);
+			ar_del(&new_ar);
 			return (NULL);
 		}
 		new_ar->len++;
