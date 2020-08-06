@@ -89,6 +89,7 @@ LINT_SRCS_NAMES = lint_basic.c \
 LST_SRCS_NAMES = dlst.c \
 	dlst_cir.c \
 	lst.c \
+	lst_2.c \
 	lst_ht.c
 
 PRINTF_SRCS_NAMES = as.c \
@@ -122,7 +123,9 @@ PRINTF_SRCS_NAMES = as.c \
 	wc_core.c
 
 ARRAY_SRCS_NAMES = array.c \
-	bheap.c
+	bheap.c \
+	opt.c \
+	qsort.c
 
 INCLUDES_NAMES = array.h \
 	fpn.h \
