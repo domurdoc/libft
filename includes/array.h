@@ -37,4 +37,6 @@ t_ar_opt		*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**),
 
 void			ar_quicksort(t_array *ar);
 
+t_array			*ar_map(t_array *ar, void *(*func)(void*), t_ar_opt *new_opt);
+
 #endif
