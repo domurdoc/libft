@@ -1,6 +1,6 @@
 #include "array.h"
 
-t_array	*ar_new(uint32_t cap)
+t_array	*ar_new(uint32_t cap, void (*del)(void*))
 {
 	t_array	*new;
 
@@ -15,7 +15,7 @@ t_array	*ar_new(uint32_t cap)
 	}
 	new->len = 0;
 	new->cap = cap;
-	new->del = NULL;
+	new->del = del;
 	new->opt = NULL;
 	return (new);
 }

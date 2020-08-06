@@ -23,7 +23,7 @@ typedef struct	s_ar_opt
 	void		(*swap)(void**, void**);
 }				t_ar_opt;
 
-t_array			*ar_new(uint32_t cap);
+t_array			*ar_new(uint32_t cap, void (*del)(void*));
 int				ar_extend(t_array *ar, uint32_t extra_cap);
 int				ar_add(t_array *ar, void *new);
 void			ar_del(t_array *ar);
@@ -33,8 +33,8 @@ void			*bh_extract(t_array *bh);
 
 t_ar_opt		*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**));
 
-void			ar_quicksort(t_array *ar);
+int				ar_quicksort(t_array *ar);
 
-t_array			*ar_map(t_array *ar, void *(*func)(void*), t_ar_opt *new_opt);
+t_array			*ar_map(t_array *ar, void *(*func)(void*), void (*del)(void*));
 
 #endif
