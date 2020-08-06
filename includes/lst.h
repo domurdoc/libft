@@ -52,7 +52,7 @@ void				lst_add_after(t_lst *prev, t_lst *new);
 void				lst_del(t_lst **first, void (*del)(void*));
 
 int					lst_push(t_lst **head, void *data);
-int					lst_pop(t_lst **head);
+void				*lst_pop(t_lst **head);
 
 int					lst_ht_push(t_lst_ht *x, void *data);
 int					lst_ht_push_back(t_lst_ht *x, void *data);

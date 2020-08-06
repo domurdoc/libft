@@ -10,7 +10,7 @@ int		lst_push(t_lst **head, void *data)
 	return (0);
 }
 
-int		lst_pop(t_lst **head)
+void	*lst_pop(t_lst **head)
 {
 	void	*data;
 	t_lst	*tmp;
