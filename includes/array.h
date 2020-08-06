@@ -32,7 +32,8 @@ void			ar_del(t_array *ar);
 int				bh_add(t_array *bh, void *new);
 void			*bh_extract(t_array *bh);
 
-t_ar_opt		*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**));
+t_ar_opt		*ar_opt(int (*cmp)(void*, void*), void (*swap)(void**, void**),
+				void (*del)(void*));
 
 void			ar_quicksort(t_array *ar);
 
