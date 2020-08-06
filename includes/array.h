@@ -5,8 +5,8 @@
 # define BH_LEFT(i)		(((i) << 1) + 1)
 # define BH_RIGHT(i)	(((i) << 1) + 2)
 # define BH_PARENT(i)	(((i) - 1) / 2)
-# define AR_SWAP		((t_ar_opt1*)ar->opt)->swap
-# define AR_CMP			((t_ar_opt1*)ar->opt)->cmp
+# define AR_SWAP		((t_ar_opt*)ar->opt)->swap
+# define AR_CMP			((t_ar_opt*)ar->opt)->cmp
 
 typedef struct	s_array
 {
@@ -19,7 +19,7 @@ typedef struct	s_array
 typedef struct	s_ar_opt
 {
 	int			(*cmp)(void*, void*);
-	void		(*swap)(void*, void*);
+	void		(*swap)(void**, void**);
 }				t_ar_opt;
 
 t_array			*ar_new(uint32_t cap);
