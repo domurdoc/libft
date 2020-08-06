@@ -1,11 +1,23 @@
 #include "lst.h"
 
+t_lst_ht	*lst_ht_new(void)
+{
+	t_lst_ht	*new;
+
+	if (!(new = malloc(sizeof(t_lst_ht))))
+		return (NULL);
+	new->len = 0;
+	new->head = NULL;
+	new->tail = NULL;
+	return (new);
+}
+
 /*
 ** The lst_ht_push() function pushes data to the begining of the list. If an
 ** error occurs then 1 is returned.
 */
 
-int		lst_ht_push(t_lst_ht *x, void *data)
+int			lst_ht_push(t_lst_ht *x, void *data)
 {
 	t_lst	*new;
 
@@ -22,7 +34,7 @@ int		lst_ht_push(t_lst_ht *x, void *data)
 ** error occurs then 1 is returned.
 */
 
-int		lst_ht_push_back(t_lst_ht *x, void *data)
+int			lst_ht_push_back(t_lst_ht *x, void *data)
 {
 	t_lst	*new;
 
@@ -45,7 +57,7 @@ int		lst_ht_push_back(t_lst_ht *x, void *data)
 ** tail pointers will point to NULL after the extraction.
 */
 
-void	*lst_ht_pop(t_lst_ht *x)
+void		*lst_ht_pop(t_lst_ht *x)
 {
 	void	*data;
 	t_lst	*tmp;
@@ -66,7 +78,7 @@ void	*lst_ht_pop(t_lst_ht *x)
 ** tail-pointer to NULL.
 */
 
-void	lst_ht_del(t_lst_ht *x, void (*del)(void*))
+void		lst_ht_del(t_lst_ht *x, void (*del)(void*))
 {
 	if (x)
 	{

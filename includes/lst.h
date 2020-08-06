@@ -54,6 +54,7 @@ void				lst_del(t_lst **first, void (*del)(void*));
 int					lst_push(t_lst **head, void *data);
 void				*lst_pop(t_lst **head);
 
+t_lst_ht			*lst_ht_new(void);
 int					lst_ht_push(t_lst_ht *x, void *data);
 int					lst_ht_push_back(t_lst_ht *x, void *data);
 void				*lst_ht_pop(t_lst_ht *x);
