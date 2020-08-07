@@ -90,7 +90,8 @@ LST_SRCS_NAMES = dlst.c \
 	dlst_cir.c \
 	lst.c \
 	lst_2.c \
-	lst_ht.c
+	lst_ht.c \
+	lst_ht_2.c
 
 PRINTF_SRCS_NAMES = as.c \
 	buf.c \

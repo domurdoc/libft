@@ -74,16 +74,14 @@ void		*lst_ht_pop(t_lst_ht *x)
 }
 
 /*
-** The lst_ht_del() function uses lst_del() function to delete the list and sets
-** tail-pointer to NULL.
+** The lst_ht_del() function clears list with lst_ht_clear() and also frees
+** t_lst_ht structure with setting *x to NULL (ft_memdel)
 */
 
-void		lst_ht_del(t_lst_ht *x, void (*del)(void*))
+void		lst_ht_del(t_lst_ht **x, void (*del)(void*))
 {
-	if (x)
-	{
-		x->len = 0;
-		lst_del(&x->head, del);
-		x->tail = NULL;
-	}
+	if (!x || !*x)
+		return ;
+	lst_ht_clear(*x, del);
+	ft_memdel((void**)x);
 }

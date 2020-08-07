@@ -14,7 +14,7 @@ int	fd_del(t_dlst_cir *bf, int ret)
 	t_fd	*fd;
 
 	fd = dlst_cir_pop(bf);
-	lst_ht_del(&fd->snips, free);
+	lst_ht_clear(&fd->snips, free);
 	free(fd);
 	return (ret);
 }
