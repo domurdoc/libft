@@ -75,13 +75,13 @@ void		*lst_ht_pop(t_lst_ht *x)
 
 /*
 ** The lst_ht_del() function clears list with lst_ht_clear() and also frees
-** t_lst_ht structure with setting *x to NULL (ft_memdel)
+** t_lst_ht structure.
 */
 
-void		lst_ht_del(t_lst_ht **x, void (*del)(void*))
+void		lst_ht_del(t_lst_ht *x, void (*del)(void*))
 {
-	if (!x || !*x)
+	if (!x)
 		return ;
-	lst_ht_clear(*x, del);
-	ft_memdel((void**)x);
+	lst_ht_clear(x, del);
+	free(x);
 }
