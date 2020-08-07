@@ -6,7 +6,7 @@ t_array	*ar_map(t_array *ar, void *(*func)(void*), void (*del)(void*))
 
 	if (!ar || !func)
 		return (NULL);
-	if (!(new_ar = ar_new(ar->cap, del)))
+	if (!(new_ar = ar_new(ar->len, del)))
 		return (NULL);
 	while (new_ar->len < ar->len)
 	{
