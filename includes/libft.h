@@ -106,4 +106,6 @@ int					ft_printf(const char *fmt, ...);
 void				ft_swap(void *a, void *b, size_t len);
 void				ft_swap_p(void **a, void **b);
 
+int32_t				ft_min(int32_t a, int32_t b);
+
 #endif
