@@ -179,7 +179,7 @@ $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
-	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
+	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
 
