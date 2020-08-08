@@ -1,10 +1,10 @@
 #include "array.h"
 
-void	bh_sift_down(t_array *ar, size_t i)
+void	bh_sift_down(t_array *ar, int64_t i)
 {
-	size_t	left;
-	size_t	right;
-	size_t	lesser;
+	uint32_t	left;
+	uint32_t	right;
+	uint32_t	lesser;
 
 	while ((left = BH_LEFT(i)) < ar->len)
 	{
@@ -19,9 +19,9 @@ void	bh_sift_down(t_array *ar, size_t i)
 	}
 }
 
-void	bh_sift_up(t_array *ar, size_t i)
+void	bh_sift_up(t_array *ar, int64_t i)
 {
-	size_t	parent;
+	uint32_t	parent;
 
 	while (ar->cmp(ar->data[i], ar->data[(parent = BH_PARENT(i))]) < 0)
 	{

@@ -9,8 +9,8 @@
 typedef struct	s_array
 {
 	void		**data;
-	size_t		len;
-	size_t		cap;
+	uint32_t	len;
+	uint32_t	cap;
 	void		(*del)(void*);
 	int			(*cmp)(void*, void*);
 }				t_array;

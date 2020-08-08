@@ -22,8 +22,8 @@ t_array	*ar_new(uint32_t cap, void (*del)(void*))
 
 int		ar_extend(t_array *ar, uint32_t extra_cap)
 {
-	void	**data;
-	size_t	new_cap;
+	void		**data;
+	uint32_t	new_cap;
 
 	if (!ar || (new_cap = ar->cap + extra_cap) < extra_cap)
 		return (1);
