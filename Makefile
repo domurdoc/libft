@@ -3,7 +3,8 @@
 NAME = libft.a
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g -O3
+FLAGS2 = -Wall -Wextra -Werror -g
 
 SRCS_NAMES = ft_atoi.c \
 	ft_atoi_base.c \
@@ -36,7 +37,6 @@ SRCS_NAMES = ft_atoi.c \
 	ft_memdel.c \
 	ft_memmove.c \
 	ft_memset.c \
-	ft_min.c \
 	ft_putchar.c \
 	ft_putchar_fd.c \
 	ft_putendl.c \
@@ -72,7 +72,6 @@ SRCS_NAMES = ft_atoi.c \
 	ft_strstr.c \
 	ft_strsub.c \
 	ft_strtrim.c \
-	ft_swap.c \
 	ft_tolower.c \
 	ft_toupper.c
 
@@ -181,9 +180,25 @@ $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
-	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
+	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
+
+## without O3 #################################################################
+
+$(OBJS_DIR)/ft_putchar_fd.o: $(SRCS_DIR)/ft_putchar_fd.c $(INCLUDES)
+	$(CC) $(FLAGS2) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(OBJS_DIR)/ft_putstr_fd.o: $(SRCS_DIR)/ft_putstr_fd.c $(INCLUDES)
+	$(CC) $(FLAGS2) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(OBJS_DIR)/ft_putnbr_fd.o: $(SRCS_DIR)/ft_putnbr_fd.c $(INCLUDES)
+	$(CC) $(FLAGS2) -I $(INCLUDES_DIR) -o $@ -c $<
+
+$(OBJS_DIR)/lint_output_fd.o: $(LINT_SRCS_DIR)/lint_output_fd.c $(INCLUDES)
+	$(CC) $(FLAGS2) -I $(INCLUDES_DIR) -o $@ -c $<
+
+###############################################################################
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCLUDES)
 	$(CC) $(FLAGS) -I $(INCLUDES_DIR) -o $@ -c $<
