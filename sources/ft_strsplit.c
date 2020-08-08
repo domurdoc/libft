@@ -33,7 +33,7 @@ static size_t	find_word(char **s, char **beg, char c)
 	*beg = *s;
 	while (**s && **s != c)
 		(*s)++;
-	return (s - beg);
+	return (*s - *beg);
 }
 
 char			**ft_strsplit(char const *s, char c)
