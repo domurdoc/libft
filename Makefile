@@ -37,6 +37,7 @@ SRCS_NAMES = ft_atoi.c \
 	ft_memdel.c \
 	ft_memmove.c \
 	ft_memset.c \
+	ft_min.c \
 	ft_putchar.c \
 	ft_putchar_fd.c \
 	ft_putendl.c \
@@ -72,6 +73,7 @@ SRCS_NAMES = ft_atoi.c \
 	ft_strstr.c \
 	ft_strsub.c \
 	ft_strtrim.c \
+	ft_swap.c \
 	ft_tolower.c \
 	ft_toupper.c
 
@@ -180,7 +182,7 @@ $(OBJS_DIR):
 	@mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
-	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS)
+	@ar rc $(NAME) $(OBJS) $(LINT_OBJS) $(LST_OBJS) $(PRINTF_OBJS) $(ARRAY_OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)$(NAME) created$(EOC)"
 
