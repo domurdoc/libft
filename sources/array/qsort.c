@@ -2,14 +2,14 @@
 
 static uint32_t	partition(t_array *ar, uint32_t l, uint32_t r)
 {
-	uint64_t	v;
+	void	*v;
 
-	v = (l + r) / 2;
+	v = ar->data[l + (r - l) / 2];
 	while (l <= r)
 	{
-		while (ar->cmp(ar->data[l], ar->data[v]) < 0)
+		while (ar->cmp(ar->data[l], v) < 0)
 			l++;
-		while (ar->cmp(ar->data[r], ar->data[v]) > 0)
+		while (ar->cmp(ar->data[r], v) > 0)
 			r--;
 		if (l >= r)
 			break ;
