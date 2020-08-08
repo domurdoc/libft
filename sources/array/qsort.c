@@ -34,7 +34,8 @@ int				ar_quicksort(t_array *ar)
 {
 	if (ar && ar->cmp)
 	{
-		quicksort(ar, 0, ar->len - 1);
+		if (ar->len > 1)
+			quicksort(ar, 0, ar->len - 1);
 		return (0);
 	}
 	return (1);
