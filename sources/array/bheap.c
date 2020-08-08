@@ -15,7 +15,7 @@ void	bh_sift_down(t_array *ar, int64_t i)
 		if (ar->cmp(ar->data[i], ar->data[lesser]) <= 0)
 			break ;
 		ft_swap_p(&ar->data[i], &ar->data[lesser]);
-		lesser = i;
+		i = lesser;
 	}
 }
 
