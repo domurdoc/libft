@@ -60,7 +60,7 @@ int	fd_read(t_dlst_cir *bf)
 		return (ERROR);
 	else if (snip->len == 0)
 		return (EOF);
-	else if (snip->len < BUFF_SIZE)
+	else if (snip->len < BUFF_SIZE && snip->str[snip->len - 1] != EOL)
 		snip->str[snip->len++] = EOL;
 	return (OK);
 }
