@@ -20,8 +20,8 @@ int				ar_extend(t_array *ar, uint32_t extra_cap);
 int				ar_add(t_array *ar, void *new);
 void			ar_del(t_array **ar);
 
-int				bh_add(t_array *bh, void *new);
-void			*bh_extract(t_array *bh);
+int				bh_add(t_array *ar, void *new);
+void			*bh_extract(t_array *ar);
 
 int				ar_quicksort(t_array *ar);
 
