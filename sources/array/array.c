@@ -56,5 +56,5 @@ void	ar_del(t_array **ar)
 		while (i < (*ar)->len)
 			(*ar)->del((*ar)->data[i++]);
 	free((*ar)->data);
-	free((*ar));
+	ft_memdel((void**)ar);
 }
