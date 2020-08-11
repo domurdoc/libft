@@ -8,10 +8,10 @@
 # define SNPT		((t_snip*)FD->snips.tail->data)
 # define FD_LINE	((t_fd*)bf.cur->data)->line
 
-# define EOL		'\n'
+# define EOL_		'\n'
 
 # define ERROR		-1
-# define EOF		0
+# define EOF_		0
 # define OK			1
 
 typedef struct		s_fd

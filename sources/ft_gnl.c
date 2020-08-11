@@ -29,10 +29,10 @@ int	fd_del(t_dlst_cir *bf, int ret)
 ** snip is freed.
 **
 ** The function returns ERROR (memory allocation or reading from fd fails)
-** or EOF (number of bytes read is 0) or OK (any other case) signal.
+** or EOF_ (number of bytes read is 0) or OK (any other case) signal.
 **
 ** If number of bytes read is not zero and less then BUFF_SIZE, then end-of-line
-** (EOL = '\n') char is appended to the data and read size is increased by 1.
+** (EOL_ = '\n') char is appended to the data and read size is increased by 1.
 **
 ** The fd_read() function should be followed by fd_del() function in case of
 ** non-OK output.
@@ -59,9 +59,9 @@ int	fd_read(t_dlst_cir *bf)
 	if (snip->len < 0)
 		return (ERROR);
 	else if (snip->len == 0)
-		return (EOF);
-	else if (snip->len < BUFF_SIZE && snip->str[snip->len - 1] != EOL)
-		snip->str[snip->len++] = EOL;
+		return (EOF_);
+	else if (snip->len < BUFF_SIZE && snip->str[snip->len - 1] != EOL_)
+		snip->str[snip->len++] = EOL_;
 	return (OK);
 }
 
@@ -112,11 +112,11 @@ int	fd_get(int fd, t_dlst_cir *bf)
 ** The fd_process() function scans fd-buffer and acquire a substring
 ** representing the whole line in the File Descriptor.
 **
-** fd_process() firstly checks tail-snip for EOL presence and if one does not
+** fd_process() firstly checks tail-snip for EOL_ presence and if one does not
 ** exist then reads another snip with fd_read() function until it does.
 ** Otherwise it collects all the strings in the snips from head to tail (snips
-** are stored in the t_lst_ht structure) until EOL character in the tail-snip by
-** copying them into newly created string with ft_strnew0() function ('\0' is
+** are stored in the t_lst_ht structure) until EOL_ character in the tail-snip
+** by copying them into newly created string with ft_strnew0() function ('\0' is
 ** appedned). ft_memmove() is used for copying.
 **
 ** Snips are popped with lst_ht_pop() and freed if the length of the list is
@@ -130,7 +130,7 @@ int	fd_process(t_dlst_cir *bf)
 	int		ret;
 
 	l[0] = 0;
-	while (!(eol_ptr = ft_memchr(SNPT->str + SNPT->offset, EOL, SNPT->len)))
+	while (!(eol_ptr = ft_memchr(SNPT->str + SNPT->offset, EOL_, SNPT->len)))
 	{
 		l[0] += SNPT->len;
 		if ((ret = fd_read(bf)) != OK)
