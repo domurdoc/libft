@@ -6,7 +6,7 @@
 /*   By: domurdoc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 12:43:57 by domurdoc          #+#    #+#             */
-/*   Updated: 2020/08/11 12:43:58 by domurdoc         ###   ########.fr       */
+/*   Updated: 2020/10/10 23:20:55 by domurdoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void				dlst_add_after(t_dlst *cur, t_dlst *new);
 void				dlst_disconnect(t_dlst *cur);
 void				dlst_del(t_dlst **head, void (*del)(void*));
 
-void				dlst_init(t_dlst_cir *x);
+void				dlst_cir_init(t_dlst_cir *x);
 int					dlst_cir_push(t_dlst_cir *x, void *data);
 void				*dlst_cir_pop(t_dlst_cir *x);
 

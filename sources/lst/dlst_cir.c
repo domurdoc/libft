@@ -6,7 +6,7 @@
 /*   By: domurdoc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 12:55:25 by domurdoc          #+#    #+#             */
-/*   Updated: 2020/08/11 12:55:25 by domurdoc         ###   ########.fr       */
+/*   Updated: 2020/10/10 23:20:49 by domurdoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	*dlst_cir_pop(t_dlst_cir *x)
 	return (data);
 }
 
-void	dlst_init(t_dlst_cir *x)
+void	dlst_cir_init(t_dlst_cir *x)
 {
 	if (!x)
 		return ;
